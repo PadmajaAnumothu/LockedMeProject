@@ -1,7 +1,9 @@
 package com.dell.lockedme.modules;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -9,6 +11,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import com.dell.lockedme.constants.Constants;
@@ -85,18 +89,26 @@ public class FileOperations {
 
 	public static boolean ListAllFiles() {
 		// TODO Auto-generated method stub
-		System.out.println("List of file names");
-		Scanner sc = null;
-		try {
-			sc = new Scanner(new File(Constants.fileName));
-			while (sc.hasNextLine())
-				System.out.println(sc.nextLine());
+		System.out.println("List of file names in ascending order: \n");
+		
+		try {		
+			FileReader fr = new FileReader(Constants.fileName);
+			BufferedReader reader = new BufferedReader(fr);
+			ArrayList<String> str = new ArrayList<>();
+			String line = "";
+			while((line=reader.readLine())!=null){
+				str.add(line);
+			}
+			Collections.sort(str);
+			for(String s:str)
+			System.out.println(s);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println("An error occured while reading the file");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("An error occured while reading the file");
 		}
-		sc.close();
-
 		return false;
 		
 	}
