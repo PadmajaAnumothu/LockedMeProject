@@ -34,10 +34,10 @@ public class OptionsMenu {
 				switch(input) {
 				case 1 : 
 					flag = FileOperations.addFileName();
-					UserInterface.exitScreen();
+					UserInterface.welcomeScreen();
 					break;
 				case 2 :
-					flag = FileOperations.deleteFileName();	
+					flag = FileOperations.deleteFileName();
 					UserInterface.exitScreen();
 					break;
 				case 3 :

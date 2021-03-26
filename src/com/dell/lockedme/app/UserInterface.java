@@ -29,7 +29,7 @@ public class UserInterface {
 		System.out.println("\n########################################################");
 		System.out.println("##                                                    ##");
 		System.out.println("##         THANKS FOR VISITING LOCKED ME APPLICATION  ##");
-		System.out.println("##                                                    ##");
+		System.out.println("##                                                    ##");		
 		System.out.println("########################################################\n");
 		
 	}

@@ -44,13 +44,12 @@ public class FileOperations {
 
 			String content = new String(Files.readAllBytes(path), charset);
 			String deleteFileName = sc.nextLine();
-			if(content.contains(deleteFileName)) {
-			
-			content = content.replaceAll(deleteFileName, "");
-			Files.write(path, content.getBytes(charset));
-			System.out.println("File name '"+deleteFileName +"' deleted successfully \n");
+			if(content.contains(deleteFileName)) {			
+				content = content.replaceAll(deleteFileName, "");
+				Files.write(path, content.getBytes(charset));
+				System.out.println("File name '"+deleteFileName +"' deleted successfully \n");
 			} else {
-				System.out.println("\n File name not found \n");
+				System.out.println("\nFile name not found Please provide valid name.\n");
 			}
 			
 		} catch (IOException e) {
@@ -63,8 +62,7 @@ public class FileOperations {
 
 	public static boolean searchFileName() {
 		System.out.println("Please enter file name to Search : \n");
-		Scanner sc = new Scanner(System.in);
-		
+		Scanner sc = new Scanner(System.in);		
 		try {
 			Path path = Paths.get(Constants.fileName);
 			Charset charset = StandardCharsets.UTF_8;
@@ -99,6 +97,7 @@ public class FileOperations {
 			while((line=reader.readLine())!=null){
 				str.add(line);
 			}
+			//System.out.println(str);
 			Collections.sort(str);
 			for(String s:str)
 			System.out.println(s);
@@ -109,7 +108,6 @@ public class FileOperations {
 			// TODO Auto-generated catch block
 			System.out.println("An error occured while reading the file");
 		}
-		return false;
-		
+		return false;		
 	}
 }
